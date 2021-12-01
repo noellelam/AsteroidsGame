@@ -20,11 +20,15 @@ sue.show();
    bob[i].show();
  }
  
- if (keyPressed) {
+if (keyPressed) {
 if (key =='a'||key =='A') { 
   sue.turn(-10);
   
     }
+    
+ if (key =='b'||key == 'B') {
+   sue.turn(10);
+ }
  if (key==' ') {
    
    sue.accelerate(0.4);

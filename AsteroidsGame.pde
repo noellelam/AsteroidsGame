@@ -1,6 +1,9 @@
+
 Star [] bob = new Star [100];
 Spaceship sue = new Spaceship ();
-Asteroid[] bill= new Asteroid [10];
+
+ArrayList <Asteroid> bill = new ArrayList <Asteroid>();
+
 public void setup()
 {
  size (500,500);
@@ -10,21 +13,25 @@ public void setup()
     bob[i] = new Star();
   }  
  
- for (int i=0; i<bill.length; i++) {
-   bill[i]=new Asteroid();
+ for (int i=0; i<10; i++) {
+   bill.add(i, new Asteroid());
    
  }
+ 
 }
 public void draw()
 {
  background(0);
  sue.move();
-sue.show();
+ sue.show();
 
-for (int i=0; i<bill.length; i++) {
-bill[i].move();
-bill[i].show();
-   
+for (int i=0; i<bill.size(); i++) {
+  bill.get(i).move();
+  bill.get(i).show();
+  
+  float d = dist((float)sue.getX(),(float)sue.getY(), (float)bill.get(i).getX(),(float)bill.get(i).getY());
+   if (d<10)
+    bill.remove(i); 
 }
  for (int i =0; i<bob.length; i++) {
    bob[i].show();
